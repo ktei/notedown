@@ -76,5 +76,25 @@
     @include button-style(darken($primary-color, 10%), 0, false);
 }
 
+.folders-table {
+    width:100%;
+    border:none;
+    tr {
+        border-top:1px solid $secondary-color;
+        border-bottom:1px solid $secondary-color;
+        &:nth-of-type(even) { background: #fff; }
+        &:hover {
+            background-color:$table-even-row-bg;
+        }
+    }
+    td {
+        //background-color:#fff;
+
+        &:nth-child(2) {
+            font-weight: bold;
+        }
+    }
+}
+
 
 

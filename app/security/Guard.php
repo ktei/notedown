@@ -3,7 +3,8 @@
 class Guard {
 
     private static $anoymousList = array(
-        'public' => 'all'
+        'public' => 'all',
+        'folder' => 'all'
     );
 
     public static function allowAnonymous($class, $action) {
