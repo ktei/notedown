@@ -1,0 +1,10 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.*)  index.php [L]
+
+php_value upload_max_filesize 5M
+php_value session.auto_start 1
+php_value session.cookie_lifetime 3600
