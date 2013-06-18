@@ -76,7 +76,7 @@
     @include button-style(darken($primary-color, 10%), 0, false);
 }
 
-.folders-table {
+.table {
     width:100%;
     border:none;
     tr {
@@ -96,5 +96,27 @@
     }
 }
 
+textarea {
+    resize:vertical;
+    height:100px;
+    &.small {
+        height:50px;
+        @media #{$medium} {
+            height:100px;
+        }
+    }
+    &.medium {
+        height:100px;
+        @media #{$medium} {
+            height:200px;
+        }
+    }
+    &.large {
+        height:150px;
+        @media #{$medium} {
+            height:400px;
+        }
+    }
+}
 
 

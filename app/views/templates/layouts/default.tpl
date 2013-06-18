@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="/static/css/normalize.css" type="text/css">
         <link rel="stylesheet" href="/static/css/app.css" type="text/css">
-
+        <link rel="stylesheet" href="/static/css/font-awesome.css" type="text/css">
     </head>
 
     <body>

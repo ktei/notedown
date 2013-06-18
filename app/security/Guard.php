@@ -4,7 +4,8 @@ class Guard {
 
     private static $anoymousList = array(
         'public' => 'all',
-        'folder' => 'all'
+        'folder' => 'all',
+        'note' => 'all'
     );
 
     public static function allowAnonymous($class, $action) {

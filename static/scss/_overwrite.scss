@@ -20,3 +20,16 @@
 		}
 	}
 }
+
+i {
+    color: #123;
+}
+
+a {
+    i {
+        color:$primary-color;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
