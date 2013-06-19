@@ -1,10 +1,40 @@
-RewriteEngine on
+#<IfModule mod_rewrite.c>
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-l
-RewriteRule ^(.*)  index.php [L]
+############################################
+## enable rewrites
+
+    Options +FollowSymlinks
+    RewriteEngine on
+
+############################################
+## always send 404 on missing files in these folders
+
+    RewriteCond %{REQUEST_URI} !^/.*(themes|wysiwyg|images|js)/
+
+############################################
+## always send 404 on missing favicon
+
+    RewriteRule ^favicon.ico$ favicon.ico [L]
+
+############################################
+## never rewrite for existing files, directories and links
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+
+############################################
+## rewrite everything else to index.php
+
+    RewriteRule .* index.php
+
+#</IfModule>
 
 php_value upload_max_filesize 5M
 php_value session.auto_start 1
+#php_value session.cookie_domain .memorybox.aws.af.cm
+php_value session.gc_maxlifetime 3600
 php_value session.cookie_lifetime 3600
+php_value error_reporting -1
+php_value display_errors stdout
+php_flag display_startup_errors on

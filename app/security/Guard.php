@@ -4,7 +4,6 @@ class Guard {
 
     private static $anoymousList = array(
         'public' => 'all',
-        'folder' => 'all',
         'note' => 'all'
     );
 

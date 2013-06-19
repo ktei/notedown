@@ -23,7 +23,22 @@ class AuthProvider {
     }
 
     public static function authenticate($username, $password) {
+        $user = null;
+        if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
+            $user = DAO::first('select id, username, password, email, status from users where email=:email', array(':email' => $username));
+        } else {
+            $user = DAO::first('select id, username, password, email, status from users where username=:username', array(':username' => $username));
+        }
         
+        if ($user && $user['password'] == $password) {
+            $_SESSION['user'] = array(
+                'id' => $user['id'],
+                'username' => $user['username'],
+                'email' => $user['email'],
+            );
+            return true;
+        }
+        return false;
     }
 
     public static function logout() {

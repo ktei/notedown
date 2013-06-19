@@ -24,3 +24,5 @@ $_SMARTY->setCacheDir('./app/views/cache');
 require_once __DIR__ . '/router.php';
 $_ROUTER = new Router();
 require_once __DIR__ . '/map.php';
+
+require_once __DIR__ . '/db.php';
