@@ -26,7 +26,17 @@ class PublicController extends Controller {
     }
 
     public function login() {
-        
+        $model = new LoginModel();
+        if ($this->isPost()) {
+            try {
+                if ($model->submit()) {
+                    redirect('/');
+                }
+            } catch (Exception $e) {
+                throw $e;
+            }
+        }
+        $this->assign('model', $model);
     }
 
     public function error404() {

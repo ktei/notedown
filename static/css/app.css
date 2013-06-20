@@ -4287,6 +4287,11 @@ a i {
   a i:hover {
     text-decoration: none; }
 
+.alert {
+  border: none; }
+  .alert h5 {
+    color: #fff; }
+
 .hero {
   padding: 50px 0 50px;
   background-repeat: no-repeat;

@@ -12,7 +12,7 @@ function smarty_function_show_errors($params, $template) {
         }
         $html = '<div data-alert class="alert-box alert">';
         if (array_key_exists('title', $params)) {
-            $html = $html . '<h4>' . $params['title'] . '</h4>';
+            $html = $html . '<h5>' . $params['title'] . '</h5>';
         }
 
         $hasError = false;
