@@ -13,7 +13,12 @@
 
     <body>
 
-        {include file="layouts/header_public.tpl"}
+        {if AuthProvider::isAuthenticated()}
+            {include file="layouts/header.tpl"}
+        {else}
+            {include file="layouts/header_public.tpl"}
+        {/if}
+        
         {include file="pages/$page.tpl"}
 
         <hr>

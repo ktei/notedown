@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-06-18 10:35:55
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-20 12:54:57
          compiled from ".\app\views\templates\layouts\default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3380519b28d2212386-85258270%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5b0bc8bdc3e5b3d165e19fb6798670c2f74cefd7' => 
     array (
       0 => '.\\app\\views\\templates\\layouts\\default.tpl',
-      1 => 1371551702,
+      1 => 1371732766,
       2 => 'file',
     ),
   ),
@@ -39,8 +39,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
     <body>
 
-        <?php echo $_smarty_tpl->getSubTemplate ("layouts/header_public.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+        <?php if (AuthProvider::isAuthenticated()){?>
+            <?php echo $_smarty_tpl->getSubTemplate ("layouts/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
+        <?php }else{ ?>
+            <?php echo $_smarty_tpl->getSubTemplate ("layouts/header_public.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
+        <?php }?>
+        
         <?php echo $_smarty_tpl->getSubTemplate ("pages/".((string)$_smarty_tpl->tpl_vars['page']->value).".tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 

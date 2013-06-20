@@ -38,6 +38,11 @@ class PublicController extends Controller {
         }
         $this->assign('model', $model);
     }
+    
+    public function signout() {
+        AuthProvider::logout();
+        redirect('/');
+    }
 
     public function error404() {
         return;
