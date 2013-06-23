@@ -6,14 +6,17 @@
         </ul>
         <table class="table">
             <tbody>
-                <tr>
-                    <td width=30><i class="icon-folder-close-alt icon-large"></i></td>
-                    <td><a href="#">Ryarc</a></td>
-                    <td width=55>
-                        <a href="#"><i class="icon-edit icon-large"></i></a>
-                        <a href="#"><i class="icon-trash icon-large"></i></a>
-                    </td>
-                </tr>
+                {foreach from=$folders item=folder}
+                    <tr>
+                        <td width=30><i class="icon-folder-close-alt icon-large"></i></td>
+                        <td><a href="#">{$folder['name']}</a></td>
+                        <td width=200 class="show-for-medium-up">Created on {date("j M Y", strtotime($folder['created_date']))}</td>
+                        <td width=55>
+                            <a href="#"><i class="icon-edit icon-large"></i></a>
+                            <a href="/folder/delete/{$folder['id']}"><i class="icon-trash icon-large"></i></a>
+                        </td>
+                    </tr>
+                {/foreach}
             </tbody>
         </table>
     </div>

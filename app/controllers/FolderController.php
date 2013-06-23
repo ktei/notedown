@@ -3,7 +3,8 @@
 class FolderController extends Controller {
 
     public function index() {
-        
+        $svc = ServiceFactory::getFolderService();
+        $this->assign('folders', $svc->getFolders(AuthProvider::getUserId()));
     }
 
     public function create() {
@@ -19,6 +20,13 @@ class FolderController extends Controller {
         }
 
         $this->assign('model', $model);
+    }
+    
+    public function delete($params) {
+        $folderId = $params['id'];
+        $svc = ServiceFactory::getFolderService();
+        $svc->deleteFolder($folderId);
+        redirect('/folder');
     }
 
 }

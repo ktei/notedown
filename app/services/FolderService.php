@@ -16,7 +16,13 @@ class FolderService {
     }
     
     public function getFolders($userId) {
-        
+        return DAO::query('select id, name, created_date from folders where user_id=:user_id',
+                array(':user_id' => $userId));
+    }
+    
+    public function deleteFolder($folderId) {
+        return DAO::execute('delete from folders where id=:id',
+                array(':id' => $folderId));
     }
 }
 
